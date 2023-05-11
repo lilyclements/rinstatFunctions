@@ -7,7 +7,7 @@
 DataSheet class description
 }
 \examples{
-#DataSheet$new(name="Bill", hair="Blond")
+#DataSheet$new()
 }
 \section{Active bindings}{
 \if{html}{\out{<div class="r6-active-bindings">}}

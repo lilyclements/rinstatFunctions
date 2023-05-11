@@ -1,9 +1,7 @@
 #' This is the DataSheet class
 #' @description DataSheet class description
-# @field name Name of the person
-# @field hair Hair colour
 #' @examples
-#' #DataSheet$new(name="Bill", hair="Blond")
+#' #DataSheet$new()
 #' @export
 
 # we have a public, a private and an active list
