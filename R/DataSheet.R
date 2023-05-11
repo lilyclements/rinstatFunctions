@@ -187,67 +187,21 @@ DataSheet <- R6::R6Class("DataSheet",
 )
 
 
-# #' Title
-# #'
-# #' @param new_val TODO
-# #'
-# #' @return TODO
-# #' @export
-# #'
-# #' @examples TODO
-#' DataSheet$set("public", "set_variables_metadata_changed", function(new_val) {
-#'   self$variables_metadata_changed <- new_val
-#' }
-#' )
+#' Title
+#'
+#' @param new_val TODO
+#'
+#' @return TODO
+#' @export
+#'
+#' @examples #TODO
+# DataSheet$set("public", "set_variables_metadata_changed", function(new_val) {
+#   self$variables_metadata_changed <- new_val
+# }
+# )
 
-# #' Title
-# #' @name set_data
-# #' @field set_data TODO
-# #' @param new_data TODO
-# #' @param messages TODO
-# #' @param check_names TODO
-# #'
-# #' @return TODO
-# #' @export
-# #'
-# #' @examples # TODO
-# #'
-#' set_data <- function(self, public, new_data, messages=TRUE, check_names = TRUE) {
-#'   if(is.matrix(new_data)) new_data <- as.data.frame(new_data)
-#'   #This case could happen when removing rows
-#'   #as.data.frame preserves column and data frame attributes so no issue with this
-#'   else if(tibble::is_tibble(new_data) || data.table::is.data.table(new_data)) new_data <- as.data.frame(new_data)
-#'   #TODO convert ts objects correctly
-#'   else if(stats::is.ts(new_data)) {
-#'     ind <- zoo::index(new_data)
-#'     new_data <- data.frame(index = ind, value = new_data)
-#'   }
-#'   else if(is.array(new_data)) {
-#'     new_data <- as.data.frame(new_data)
-#'   }
-#'   else if(is.vector(new_data) && !is.list(new_data)) {
-#'     new_data <- as.data.frame(new_data)
-#'   }
-#' 
-#'   if(!is.data.frame(new_data)) {
-#'     stop("Data set must be of type: data.frame")
-#'   }
-#'   else {
-#'     if(length(new_data) == 0 && messages) {
-#'       message("data is empty. Data will be an empty data frame.")
-#'     }
-#'     if(check_names) {
-#'       # "T" should be avoided as a column name but is not checked by make.names()
-#'       if("T" %in% names(new_data)) names(new_data)[names(new_data) == "T"] <- ".T"
-#'       valid_names <- make.names(iconv(names(new_data), to = "ASCII//TRANSLIT", sub = "."), unique = TRUE)
-#'       if(!all(names(new_data) == valid_names)) {
-#'         warning("Not all column names are syntactically valid or unique. make.names() and iconv() will be used to force them to be valid and unique.")
-#'         names(new_data) <- valid_names
-#'       }
-#'     }
-#'     private$data <- new_data
-#'     self$append_to_changes(list(Set_property, "data"))
-#'     self$data_changed <- TRUE
-#'     self$variables_metadata_changed <- TRUE
-#'   }
-#' }
+# or
+# but need to link to self / public
+#set_variables_metadata_changed <- function(self, public, new_val) {
+#  self$variables_metadata_changed <- new_val
+# }
